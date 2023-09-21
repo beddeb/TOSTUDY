@@ -1,0 +1,50 @@
+//Курс1-Занятие2-СмР-1
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int sum_of_divisors(int n)
+{
+    int sum = 0, a=0, b=0;
+    printf("%d  ", n);
+    for( int i = 2; i <= round(n/2); ++i ) {
+        if( n % i == 0 ){
+            sum += i;
+            if (a != 0){
+                printf(",");
+            }
+            if (b == 4){
+                printf("\n     ");
+                b = 0;
+            }
+            printf("%3.d", i);
+            a += 1;
+            b += 1;
+        }
+    }
+    if (b != 0 && b!= 4){
+        for (int i=4-b-1;i <= 4;i++){
+            printf("  ");
+        }
+    }
+    if (sum==0){
+        printf("\t\t\t %d", 0);
+    }
+    return sum;
+}
+
+int main(void){
+    int a, total, max=0, id=0;
+    for(int i = 480; i <= 510;i++){
+        total = sum_of_divisors(i);
+        if (max < total){
+            max = total;
+            id = i;
+        }
+        printf("%6.d\n", total);
+    }
+    printf("\n");
+    printf("%d\n", id);
+    return 0;
+}
