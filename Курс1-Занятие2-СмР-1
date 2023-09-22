@@ -18,7 +18,7 @@ int sum_of_divisors(int n)
                 printf("\n     ");
                 b = 0;
             }
-            printf("%3.d", i);
+            printf("%3d", i);
             a += 1;
             b += 1;
         }
@@ -28,25 +28,26 @@ int sum_of_divisors(int n)
             printf("  ");
         }
     }
-    if (sum==0){
-        printf("\t\t\t %d", 0);
-    }
     return sum;
 }
 
 int main(void){
     int a, total, max=0, id=0;
     for(int i = 480; i <= 510;i++){
-        if (i == 484){
+        if (i==484){
             printf("484    2,  4, 11, 22,\n      44,121,242       446\n");
             continue;
         }
         total = sum_of_divisors(i);
+        if (total==0){
+            printf("                    %d\n", total);
+            continue;
+        }
         if (max < total){
             max = total;
             id = i;
         }
-        printf("%6.d\n", total);
+        printf("%6d\n", total);
     }
     printf("\n");
     printf("%d\n", id);
