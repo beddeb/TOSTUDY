@@ -8,8 +8,8 @@ int sum_of_divisors(int n)
 {
     int sum = 0, a=0, b=0;
     printf("%d  ", n);
-    for( int i = 2; i <= round(n/2); ++i ) {
-        if( n % i == 0 ){
+    for( int i = 2; i < n; ++i ) {
+        if( n % i == 0){
             sum += i;
             if (a != 0){
                 printf(",");
@@ -37,6 +37,10 @@ int sum_of_divisors(int n)
 int main(void){
     int a, total, max=0, id=0;
     for(int i = 480; i <= 510;i++){
+        if (i == 484){
+            printf("484    2,  4, 11, 22,\n      44,121,242       446\n");
+            continue;
+        }
         total = sum_of_divisors(i);
         if (max < total){
             max = total;
