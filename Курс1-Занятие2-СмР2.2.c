@@ -10,10 +10,11 @@ long int ssh(int i0, int temp){
     return temp_l;
 }
 
-long int main(void){
+int main(void){
     long int a, total=0, tot=0;
     int k, n=0, flag=1;
     scanf("%d", &k);
+    if(k==1) return 0;
     while (flag){
         n++;
         for (int i=1; i<=k; i++){
@@ -37,4 +38,5 @@ long int main(void){
         tot = total;
         total=0;
     }
+    return 0;
 }
